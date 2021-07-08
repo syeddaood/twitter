@@ -3,25 +3,19 @@ package com.example.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class weatherclass implements Parcelable {
+public class weatherclass  {
 
-    private int temp;
+   private float temp;
     private int pressure;
     private int humidity;
 
-    public weatherclass(int temp, int pressure, int humidity) {
-        this.temp = temp;
-        this.pressure = pressure;
-        this.humidity = humidity;
-    }
-
     protected weatherclass(Parcel in) {
-        temp = in.readInt();
+        temp = in.readFloat();
         pressure = in.readInt();
         humidity = in.readInt();
     }
 
-    public static final Creator<weatherclass> CREATOR = new Creator<weatherclass>() {
+    public static final Parcelable.Creator<weatherclass> CREATOR = new Parcelable.Creator<weatherclass>() {
         @Override
         public weatherclass createFromParcel(Parcel in) {
             return new weatherclass(in);
@@ -33,7 +27,16 @@ public class weatherclass implements Parcelable {
         }
     };
 
-    public int getTemp() {
+    @Override
+    public String toString() {
+        return "weatherclass{" +
+                "temp=" + temp +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                '}';
+    }
+
+    public float getTemp() {
         return temp;
     }
 
@@ -45,15 +48,7 @@ public class weatherclass implements Parcelable {
         return humidity;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(temp);
-        parcel.writeInt(pressure);
-        parcel.writeInt(humidity);
-    }
+
+
 }

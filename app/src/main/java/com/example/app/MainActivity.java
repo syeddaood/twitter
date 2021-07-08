@@ -19,41 +19,17 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn = findViewById(R.id.button);
-    TextView tx = findViewById(R.id.textView);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GetRetrofitResponse();
-            }
-        });
+
 
     }
 
-    void GetRetrofitResponse()
-    {
-        weatherapi Weatherapi = service.getWeatherapi();
 
-        Call<currentweather> responsecall = Weatherapi.cweather();
-        responsecall.enqueue(new Callback<currentweather>() {
-            @Override
-            public void onResponse(Call<currentweather> call, Response<currentweather> response) {
-                currentweather weatherclass;
-
-            }
-
-            @Override
-            public void onFailure(Call<currentweather> call, Throwable t) {
-
-            }
-        });
-
-    }
 
 
 }

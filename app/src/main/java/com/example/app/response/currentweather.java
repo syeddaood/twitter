@@ -11,7 +11,7 @@ public class currentweather {
     @Expose
     private weatherclass Weatherclass;
 
-    private weatherclass getWeatherclass()
+   private weatherclass getWeatherclass()
     {
         return Weatherclass;
     }
